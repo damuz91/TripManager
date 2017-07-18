@@ -1,3 +1,31 @@
 <div class="col-md-12">
-    <h1>Home</h1>
+    <h1>All Routings</h1>
+</div>
+
+<div class="col-md-12 table-responsive">
+    <table class="table datatable">
+        <thead>
+            <tr>
+                <th>Start point</th>
+                <th>End point</th>
+                <th>Vehicle</th>
+                <th>Passenger</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @routes.each do |route| %>
+            <tr>
+                <td><%= route.start_point %></td>
+                <td><%= route.end_point %></td>
+                <td><%= external_link_helper(route.vehicle, route.vehicle.plate) %></td>
+                <td><%= external_link_helper(route.passenger, route.passenger.name) %></td>
+                <td><%= route.status_name %></td>
+                <td><%= link_to 'Show', route %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>
