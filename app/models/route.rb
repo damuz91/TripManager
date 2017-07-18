@@ -10,5 +10,9 @@ class Route < ActiveRecord::Base
     belongs_to :vehicle
     belongs_to :passenger
 
+    def self.get_active
+        where.not(status: Status[:deleted])
+    end
+
 
 end
