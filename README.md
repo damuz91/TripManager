@@ -6,7 +6,9 @@ Ruby: 2.3.0
 
 Just: 
 
-    $ bundle install & rake db:create db:migrate db:seed & rails server
+    $ bundle install
+    $ rake db:create db:migrate db:seed
+    $ rails server
 
 API:
 
