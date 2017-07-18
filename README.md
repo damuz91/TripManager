@@ -2,6 +2,8 @@
 
 Just an example to show off basic Rails project.
 
+Ruby: 2.3.0
+
 Just: 
 
     $ bundle install & rake db:create db:migrate db:seed & rails server
@@ -19,3 +21,7 @@ API:
             "year": "1950"
         }
     }
+
+To test:
+
+    $ bundle exec rspec spec/controllers/vehicles_controller.rb

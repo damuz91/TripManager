@@ -11,6 +11,7 @@ class Route < ActiveRecord::Base
     belongs_to :passenger
 
     def self.get_active
+        # TODO: Do a custom join query in order to avoid n+1 quering
         where.not(status: Status[:deleted])
     end
 
