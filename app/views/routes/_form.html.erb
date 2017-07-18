@@ -1,0 +1,41 @@
+<%= form_for(@route) do |f| %>
+	<% if @route.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+		<ul>
+			<% @route.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<table class="table">
+		<tr>
+			<td><%= f.label :start_point %></td>
+			<td><%= f.text_field :start_point, class: 'form-control', required: true, autofocus: true %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :end_point %></td>
+			<td><%= f.text_field :end_point, class: 'form-control', required: true %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :vehicle_id %></td>
+			<%# TODO: Ajaxify this %>
+			<td><%= f.select :vehicle_id, options_for_select(Vehicle.get_active_for_select, @route.vehicle_id), {include_blank: 'Select a vehicle from the list'}, {class: 'form-control select2', required: true} %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :passenger_id %></td>
+			<%# TODO: Ajaxify this %>
+			<td><%= f.select :passenger_id, options_for_select(Passenger.get_active_for_select, @route.passenger_id), {include_blank: 'Select a passenger from the list'}, {class: 'form-control select2', required: true} %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :status %></td>
+			<td><%= f.select :status, options_for_select(Route.get_status_for_select, @route.status), {}, {class: 'form-control', required: true} %></td>
+		</tr>
+	</table>
+	<div class="actions">
+		<%= f.submit "Submit", class: 'btn btn-primary' %>
+	</div>
+<% end %>

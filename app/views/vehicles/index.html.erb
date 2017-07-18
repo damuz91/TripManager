@@ -1,0 +1,41 @@
+<div class="col-md-12">
+	<p id="notice"><%= notice %></p>
+</div>
+
+<div class="col-md-12">
+	<h1>Listing Vehicles</h1>
+</div>
+
+<div class="col-md-12">
+	<%= link_to 'New Vehicle', new_vehicle_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="col-md-12 table-responsive">
+	<table class="table datatable">
+		<thead>
+			<tr>
+				<th>Plate</th>
+				<th>Category</th>
+				<th>Color</th>
+				<th>Year</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @vehicles.each do |vehicle| %>
+			<tr>
+				<td><%= vehicle.plate %></td>
+				<td><%= vehicle.category_name %></td>
+				<td><%= vehicle.color %></td>
+				<td><%= vehicle.year %></td>
+				<td><%= vehicle.status_name %></td>
+				<td><%= link_to 'Show', vehicle %>
+				<%= link_to 'Edit', edit_vehicle_path(vehicle) %>
+				<%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

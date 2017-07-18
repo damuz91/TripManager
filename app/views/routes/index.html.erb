@@ -1,0 +1,41 @@
+<div class="col-md-12">
+	<p id="notice"><%= notice %></p>
+</div>
+
+<div class="col-md-12">
+	<h1>Listing Routes</h1>
+</div>
+
+<div class="col-md-12">
+	<%= link_to 'New Route', new_route_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="col-md-12 table-responsive">
+	<table class="table datatable">
+		<thead>
+			<tr>
+				<th>Start point</th>
+				<th>End point</th>
+				<th>Vehicle</th>
+				<th>Passenger</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @routes.each do |route| %>
+			<tr>
+				<td><%= route.start_point %></td>
+				<td><%= route.end_point %></td>
+				<td><%= external_link_helper(route.vehicle, route.vehicle.plate) %></td>
+				<td><%= external_link_helper(route.passenger, route.passenger.name) %></td>
+				<td><%= route.status_name %></td>
+				<td><%= link_to 'Show', route %>
+				<%= link_to 'Edit', edit_route_path(route) %>
+				<%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

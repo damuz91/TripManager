@@ -1,0 +1,42 @@
+<div class="col-md-12">
+	<p id="notice"><%= notice %></p>
+</div>
+
+<div class="col-md-12">
+	<h1>Listing Passengers</h1>
+</div>
+
+<div class="col-md-12">
+	<%= link_to 'New Passenger', new_passenger_path, class: 'btn btn-primary' %>
+</div>
+
+
+<div class="col-md-12 table-responsive">
+	<table class="table datatable">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Cellphone</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @passengers.each do |passenger| %>
+			<tr>
+				<td><%= passenger.name %></td>
+				<td><%= passenger.cellphone %></td>
+				<td><%= passenger.status_name %></td>
+				<td>
+					<%= link_to 'Show', passenger %>
+					<%= link_to 'Edit', edit_passenger_path(passenger) %>
+					<%= link_to 'Destroy', passenger, method: :delete, data: { confirm: 'Are you sure?' } %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+
