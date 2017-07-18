@@ -1,0 +1,3 @@
+== README
+
+Just an example to show off basic Rails project.
