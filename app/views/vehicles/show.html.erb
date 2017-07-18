@@ -6,28 +6,31 @@
 	<h1>Vehicle Details</h1>
 </div>
 
-<table class="table">
-	<tr>
-		<td><strong>Plate:</strong></td>
-		<td><%= @vehicle.plate %></td>
-	</tr>
-	<tr>
-		<td><strong>Category:</strong></td>
-		<td><%= @vehicle.category_name %></td>
-	</tr>
-	<tr>
-		<td><strong>Color:</strong></td>
-		<td><%= @vehicle.color %></td>
-	</tr>
-	<tr>
-		<td><strong>Year:</strong></td>
-		<td><%= @vehicle.year %></td>
-	</tr>
-	<tr>
-		<td><strong>Status:</strong></td>
-		<td><%= @vehicle.status_name %></td>
-	</tr>
-</table>
+<div class="col-md-12 table-responsive">
+	<table class="table">
+		<tr>
+			<td><strong>Plate:</strong></td>
+			<td><%= @vehicle.plate %></td>
+		</tr>
+		<tr>
+			<td><strong>Category:</strong></td>
+			<td><%= @vehicle.category_name %></td>
+		</tr>
+		<tr>
+			<td><strong>Color:</strong></td>
+			<td><%= @vehicle.color %></td>
+		</tr>
+		<tr>
+			<td><strong>Year:</strong></td>
+			<td><%= @vehicle.year %></td>
+		</tr>
+		<tr>
+			<td><strong>Status:</strong></td>
+			<td><%= @vehicle.status_name %></td>
+		</tr>
+	</table>
+</div>
+
 
 <div class="col-md-12">
 	<h2>Vehicle's routes</h2>
@@ -58,5 +61,8 @@
 	</table>
 </div>
 
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
+<div class="col-md-12">
+	<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+	<%= link_to 'Back', vehicles_path %>
+</div>
+
