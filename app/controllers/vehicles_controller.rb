@@ -1,11 +1,15 @@
 class VehiclesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:create, :index]
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
     @vehicles = Vehicle.get_active
+    respond_to do |format|
+      format.html
+      format.json { render json: @vehicles.map { |v| Api::VehiclePresenter.new(v) }}
+    end
   end
 
   # GET /vehicles/1
@@ -30,7 +34,7 @@ class VehiclesController < ApplicationController
     respond_to do |format|
       if @vehicle.save
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
-        format.json { render :show, status: :created, location: @vehicle }
+        format.json { render json: 'Vehicle was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @vehicle.errors, status: :unprocessable_entity }
@@ -44,7 +48,7 @@ class VehiclesController < ApplicationController
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
-        format.json { render :show, status: :ok, location: @vehicle }
+        format.json { render json: 'Vehicle was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @vehicle.errors, status: :unprocessable_entity }
