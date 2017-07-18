@@ -4,7 +4,7 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.all
+    @routes = Route.get_active
   end
 
   # GET /routes/1
