@@ -49,6 +49,6 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem "select2-rails"
-
+gem 'faker'
 
 
